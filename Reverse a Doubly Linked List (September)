@@ -1,0 +1,35 @@
+/*
+class Node {
+  public:
+    int data;
+    Node *next;
+    Node *prev;
+    Node(int val) {
+        data = val;
+        next = NULL;
+        prev = NULL;
+    }
+};
+
+*/
+class Solution {
+  public:
+    Node *reverse(Node *head) {
+        // code here
+        if(head == NULL || head-> next ==NULL){
+            return head;
+        }
+        Node* temp = NULL;
+        Node* curr = head;
+        Node* forw = head;
+        while(forw != NULL){
+            forw = curr->next;
+            curr->next = temp;
+            curr->prev = forw;
+            temp =curr;
+            curr =forw;
+        }
+        
+        return temp;
+    }
+};
